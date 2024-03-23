@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Properties</title>
+</head>
+<body>
+    <div>
+        <h1>Css Properties</h1>
+        <div>
+            <h2>Position Example</h2>
+            <div>
+                <div class="divStrc">Static 1</div>
+                <div class="divStrc" id="staticItem">Static 2</div>
+                <div class="divStrc">Static 3</div>
+            </div>
+            <div>
+                <div class="divStrc">Sticky 1</div>
+                <div class="divStrc" id="stickyItem">Sticky 2</div>
+                <div class="divStrc">Sticky 3</div>
+            </div>
+            <div>
+                <div class="divStrc">Fixed 1</div>
+                <div class="divStrc" id="fixedItem">Fixed 2</div>
+                <div class="divStrc">Fixed 3</div>
+            </div>
+            <div>
+                <div class="divStrc">Absolute 1</div>
+                <div class="divStrc" id="absoluteItem">Absolute 2</div>
+                <div class="divStrc">Absolute 3</div>
+            </div>
+            <div>
+                <div class="divStrc">Relative 1</div>
+                <div class="divStrc" id="relativeItem">Relative 2</div>
+                <div class="divStrc">Relative 3</div>
+            </div>
+            <style>
+                #staticItem{
+                    display:flex;
+                    position: static;
+                    left:500px;
+                }
+               
+                #stickyItem{
+                    display:flex;
+                    position:sticky;
+                    top:20px;
+                    left:400px;
+                }
+                #fixedItem{
+                    display:flex;
+                    position:fixed;
+                    top:20px;
+                    left:400px;
+                }
+                #absoluteItem{
+                    display:flex;
+                    position:absolute;
+                    top:20px;
+                    left:600px;
+                }
+                #relativeItem{
+                    display:flex;
+                    position:relative;
+                    top:20px;
+                    left:400px;
+                }
+                .divStrc{
+                    width:200px;
+                    height: 200px;
+                    border: solid 5px green;
+                    margin: 25px;
+                    padding: 10px;
+                }
+            </style>
+        </div>
+    </div>
+</body>
+</html>

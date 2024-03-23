@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SetMap</title>
+</head>
+<body>
+    <div>
+        <h2>Set & Map</h2>
+        <script>
+
+            let arr = new Array();
+            arr.push("Sangeetha");
+            arr.push("Viswa");
+            arr.push("Reka");
+            arr.push("Nivi");
+            arr.push("Viswa");
+            arr.push("Reka");
+
+            console.log(arr);
+            
+            let setEx = new Set();
+            setEx.add("Karthikeyan");
+            setEx.add("Karthik");
+            setEx.add("Sowmiya");
+            setEx.add("Keerthy Suresh");
+            setEx.add("Sakthivel");
+            setEx.add("Vadivel");
+            setEx.add("Karthik");
+            setEx.add("Keerthy Suresh");
+
+            console.log(setEx);
+            console.log(setEx.size);
+            console.log(setEx.has("Sakthivel"));
+            console.log(setEx.has("MadhuPriya"));
+            console.log(setEx.delete("Vadivel"));
+            console.log(setEx);
+            console.log(setEx.clear());
+            console.log(setEx);
+
+            let mp = new Map();
+            mp.set("name", "Prakash");
+            mp.set("age", 80);
+            mp.set("address", "Chennai");
+            mp.set("designation", "Developer");
+            mp.set("Office", "Chennai");
+            mp.set("designation", "Manager");
+
+            console.log(mp);
+            console.log(mp.get("name"));
+            console.log(mp.size);
+            console.log(mp.has("Office"));
+            console.log(mp.has("Mobile"));
+            console.log(mp.delete("age"));
+            console.log(mp);
+            console.log(mp.clear());
+            console.log(mp);
+
+            let jsonVal = {name:"Yukesh", 
+                            age:25, 
+                            address:{"permanent":"Vanthavasi", "communication":"Chennai"},
+                            contact:[7418529632, 8529637412], 
+                            isActive: false};
+            console.log(jsonVal);
+            console.log(jsonVal.name);
+            console.log(jsonVal.age);
+            console.log(jsonVal.address);
+            console.log(jsonVal.address.permanent);
+            console.log(jsonVal.contact[1]);
+        </script>
+    </div>
+</body>
+</html>

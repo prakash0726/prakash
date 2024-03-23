@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Accounts</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Bank Accounts Maintenance</h2>
+        <div class="row mt-4">
+            <div class="col">AccNo</div>
+            <div class="col">AccName</div>
+            <div class="col">Branch</div>
+            <div class="col">IFSC</div>
+            <div class="col">Balance</div>
+            <div class="col">Action</div>
+        </div>
+        <div class="row mt-4">
+            <div class="col"><input type="text" id="accNo" name="accNo" class="form-control"></div>
+            <div class="col"><input type="text" id="accName" name="accName" class="form-control"></div>            
+            <div class="col"><input type="text" id="branch" name="branch" class="form-control"></div>            
+            <div class="col"><input type="text" id="ifsc" name="ifsc" class="form-control"></div>            
+            <div class="col"><input type="text" id="balance" name="balance" class="form-control"></div>
+            <div class="col"><button type="button" class="btn btn-success" onclick="addAccount()">Add Account</button></div>
+        </div>
+        <div id="accounts"></div>
+    </div>
+    <script>
+
+        var tempAccDB = [];
+        var accNo="";
+        var accName = "";
+        var branch = "";
+        var ifsc = "";
+        var balance = "";
+
+        function getInputs(){
+            accNo = document.getElementById('accNo');
+            accName = document.getElementById('accName');
+            branch = document.getElementById('branch');
+            ifsc = document.getElementById('ifsc');
+            balance = document.getElementById('balance');
+        }
+
+        function resetData(){
+            accNo.value = "";
+            accName.value = "";
+            branch.value = "";
+            ifsc.value = "";
+            balance.value = "";
+        }
+
+        function addAccount(){
+            getInputs();          
+
+            let account = [accNo.value, accName.value, branch.value, ifsc.value, balance.value];
+            tempAccDB.push(account);
+            console.log(tempAccDB);
+            displayAccounts();
+            resetData();
+        }
+
+        function displayAccounts(){
+
+            let result = "";
+            for(let row=0; row < tempAccDB.length; row++){
+                result += '<div class="row mt-4">' ;
+                for(let col=0; col < tempAccDB[row].length; col++){
+                    result += '<div class="col">' + tempAccDB[row][col] + '</div>';
+                }
+                result +=   '<div class="col">' +
+                                '<button type="button" class="btn btn-warning">Update</button>' + '&nbsp;&nbsp;' +
+                                '<button type="button" class="btn btn-danger" onclick="deleteAccount('+ row +')">Delete</button>' +
+                            '</div>' +
+                         '</div>';                                
+            }
+            document.getElementById('accounts').innerHTML = result;
+        }
+
+        function deleteAccount(idx){
+            console.log(tempAccDB[idx]);
+            tempAccDB.splice(idx,1);
+            displayAccounts();
+        }
+    </script>
+</body>
+</html>

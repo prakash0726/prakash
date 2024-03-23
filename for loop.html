@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if loop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row m-4">
+            <h2>NUM RANGE</h2>
+            <div class="row container mt-4"></div>
+            <div class="col container mt-4">start</div>
+            <div class="col container mt-4"><input type="text" class="form-control" id="start" name="start"></div>
+            <div class="col container mt-4">end</div>
+            <div class="col container mt-4"><input type="text" class="form-control" id="end" name="end"></div>
+            <div class="col container mt-4"><button type="print" class="btn btn-success" onclick="num()">result</button>
+            </div>
+            <div class="col container mt-4">
+                <p id="result"></p>
+            </div>
+
+            <script>
+                function num() {
+                    let start = document.getElementById("start").value;
+                    let end = document.getElementById("end").value;
+                    let result = "";
+
+                    if (start <= end) {
+                        for (let num = start; num <= end; num++) {
+                            result += num + "&nbsp";
+                        }
+                    } else {
+                        result = "start number should be lesser or equal to end number"
+                    }
+                    document.getElementById("result").innerHTML = result;
+                }
+
+            </script>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row m-4">
+            <h2>Multiplication Table</h2>
+            <div class="col"><input type="text" id="tableNum" name="tableNum" class="form-control"
+                    onkeyup="printMulTable()" /></div>
+            <div class="col">
+                <p id="mulTableOp"></p>
+            </div>
+
+            <script>
+                function printMulTable() {
+                    let mulNum = Number(document.getElementById('tableNum').value);
+                    let result = "";
+                    for (let num = 1; num <= 10; num++) {
+                        result += mulNum + " * " + num + " = " + (mulNum * num) + "<br>";
+                    }
+                    document.getElementById('mulTableOp').innerHTML = result
+                }
+
+                //5 * 1 = 5
+                //5 * 2 = 10
+            </script>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row m-4">
+            <h2>Odd / Evevn in Num Range</h2>
+            <div class="col"><input type="text" id="oddEvenSt" name="oddEvenSt" class="form-control" /></div>
+            <div class="col"><input type="text" id="oddEvenEd" name="oddEvenEd" class="form-control" /></div>
+            <div class="col"><button type="button" class="btn btn-primary" onclick="getOddEvenInNumRange()">Find Odd /
+                    Even in Range</button></div>
+            <div class="col">
+                <p id="mulTableOp"></p>
+            </div>
+
+            <script>
+                function getOddEvenInNumRange() {
+                    let oddEvenSt = Number(document.getElementById('oddEvenSt').value);
+                    let oddEvenEd = Number(document.getElementById('oddEvenEd').value);
+                    let result = "";
+                    for (let num = oddEvenSt; num <= oddEvenEd; num++) {
+                        let op = "";
+                        if ((num % 2) == 0) {
+                            op = "Even";
+                        } else {
+                            op = "Odd";
+                        }
+                        console.log(num + " : " + op);
+                    }
+                }
+
+                // 5 * 1 = 5
+                //5 * 2 = 10
+            </script>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row m-4">
+            <h2> sum number of range</h2>
+            <div class="row container mt-4"></div>
+            <div class="col container mt-4">start</div>
+            <div class="col container mt-4"><input type="text" class="form-control" id="start" name="start" /></div>
+            <div class="col container mt-4">end</div>
+            <div class="col container mt-4"><input type="text" class="form-control" id="end" name="end" /></div>
+            <div class="col container mt-4"><button type="print" class="btn btn-success"
+                    onclick="sumnum()">result</button>
+            </div>
+            <div class="col container mt-4"></div>
+            <p id="result"></p>
+
+            <script>
+                function sumnum() {
+                    let start = Number(document.getElementById("start").value);
+                    let end = Number(document.getElementById("end").value);
+
+                    let sum = 0;
+                    for (let i = start; i <= end; i++) {
+                        sum += i;
+                    }
+                    console.log(sum);
+                    document.getElementById("result").innerHTML = sum;
+                }
+            </script>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row m-4">
+            <h2>PRINT ONLY ODD</h2>
+            <div class="row container mt-4"></div>
+            <div class="col container mt-4">start</div>
+            <div class="col container mt-4"><input type="text" class="form-control" id="oddstart" name="oddstart" />
+            </div>
+            <div class="col container mt-4">end</div>
+            <div class="col container mt-4"><input type="text" class="form-control" id="oddend" name="oddend" /></div>
+            <div class="col container mt-4"><button type="print" class="btn btn-success"
+                    onclick="printoddonly()">result</button>
+            </div>
+            <div class="col container mt-4"></div>
+            <p id="result"></p>
+            <script>
+                function printoddonly() {
+                    let oddstart = Number(document.getElementById("oddstart").value);
+                    let oddend = Number(document.getElementById("oddend").value);
+                    let result = ""
+                    for (let num = oddstart; num <= oddend; num++) {
+                        let op = ""
+                        if ((num % 2) !== 0) {
+                            op = "odd";
+                        }
+                        console.log(num + " : " + op);
+                    }
+                }
+            </script>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row m-4">
+            <h2>square</h2>
+            <div class="row container mt-4"></div>
+            <div class="col container mt-4">start</div>
+            <div class="col container mt-4"><input type="text" class="form-control" id="sqstart" name="sqstart" /></div>
+            <div class="col container mt-4">end</div>
+            <div class="col container mt-4"><input type="text" class="form-control" id="sqend" name="sqend" /></div>
+            <div class="col container mt-4"><button type="print" class="btn btn-success"
+                    onclick="squarerange()">result</button>
+            </div>
+            <div class="col container mt-4"></div>
+            <p id="result"></p>
+            <script>
+                function squarerange() {
+                    let sqstart = Number(document.getElementById("sqstart").value);
+                    let sqend = Number(document.getElementById("sqend").value);
+
+                    for (let num = sqstart; num <= end; num++) {
+                        let op = ""
+                    }
+                    console.log(num * num);
+                }
+            </script>
+        </div>
+    </div>
+    <div>
+        <div class="container">
+            <div class="row m-4">
+                <h2>add 2 if odd, add 1 if even</h2>
+                <div class="row container mt-4"></div>
+                <div class="col container mt-4">start</div>
+                <div class="col container mt-4"><input type="text" class="form-control" id="odevstart"
+                        name="odevstart" /></div>
+                <div class="col container mt-4">end</div>
+                <div class="col container mt-4"><input type="text" class="form-control" id="odevend" name="odevend" />
+                </div>
+                <div class="col container mt-4"><button type="print" class="btn btn-success"
+                        onclick="addoddeven()">result</button>
+                </div>
+                <div class="col container mt-4"></div>
+                <p id="result"></p>
+                <script>
+                    function addoddeven() {
+                        let odevstart = Number(document.getElementById("odevstart").value);
+                        let odevend = Number(document.getElementById("odevend").value);
+                        
+                        for (let num = odevstart; num <= odevend; num++) {
+                            let op = "";
+                            if ((num % 2) == 0) {
+                                op = (num+1)+"even";
+                            } else {
+                                op =(num+2)+"odd";
+                            }
+                            console.log(num + " : " + op);
+                        }
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row m-4">
+            <h2> mul number of range</h2>
+            <div class="row container mt-4"></div>
+            <div class="col container mt-4">start</div>
+            <div class="col container mt-4"><input type="text" class="form-control" id="mulstart" name="mulstart" /></div>
+            <div class="col container mt-4">end</div>
+            <div class="col container mt-4"><input type="text" class="form-control" id="mulend" name="mulend" /></div>
+            <div class="col container mt-4"><button type="print" class="btn btn-success"
+                    onclick="mulnum()">result</button>
+            </div>
+            <div class="col container mt-4"></div>
+            <p id="result"></p>
+
+            <script>
+                function mulnum() {
+                    let mulstart = Number(document.getElementById("mulstart").value);
+                    let mulend = Number(document.getElementById("mulend").value);
+
+                    let mul = 1;
+                    for (let i = mulstart; i <= mulend; i++) {
+                        mul = mul* i;
+                    }
+                    console.log(mul);
+                    document.getElementById("result").innerHTML = mul;
+                }
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>

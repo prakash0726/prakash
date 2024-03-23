@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Transition</title>
+</head>
+<body>
+     <div class="square"> Transition Example code </div>
+<style>
+    .square{
+    width:200px;
+    height:200px;
+    background-color: aquamarine;
+     transition-duration: 3s;
+     transition-property:all ; 
+    /*transition-property: background-color;*/
+    transition-timing-function: linear;
+    transition-delay:2s; 
+    /*transition:all 3s 5s ease;*/
+     
+}
+
+.square:hover{
+     background-color: blueviolet;
+    width:400px; 
+    transform:rotate(45deg) 
+}
+
+</style>
+    </body>
+
+
+</html>

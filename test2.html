@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic System</title>
+
+    <style>
+        .div-city {
+            background-color: rgb(218, 189, 94);
+            height: 500px;
+            width: 500px;
+        }
+
+        .vallalar-button {
+            height: 50px;
+            width: 100px;
+            position: relative;
+            left: 200px;
+        }
+
+        .ranga-button {
+            height: 50px;
+            width: 100px;
+            position: relative;
+            left: -25px;
+            top: 225px;
+            rotate: 90deg;
+        }
+
+        .kalainger-button {
+            height: 50px;
+            width: 100px;
+            position: relative;
+            left: 425px;
+            top: 225px;
+            rotate: -90deg;
+        }
+        
+        .amman-button {
+            height: 50px;
+            width: 100px;
+            position: relative;
+            top: 450px;
+            left: 200px;
+        }
+
+        .cp-div {
+            position: fixed;
+            left: 236px;
+            top: 236px;
+            background-color: black;
+            color: white;
+            display: inline-block;
+            padding: 5px;
+            margin: 5px;
+            border-radius: 6px;
+            border-style: dashed;
+        }
+
+        .road-vallalar{
+            background-color: black;
+            width: 75px;
+            height: 160px;
+            position: fixed;
+            left: 220px;
+            top: 60px;
+            border-left-style: dashed;
+            border-right-style: dashed;
+            border-color: white;
+            display: flex;
+        }
+        
+        .road-amman{
+            background-color: black;
+            width: 75px;
+            height: 160px;
+            position: fixed;
+            left: 220px;
+            bottom: 105px;
+            border-left-style: dashed;
+            border-right-style: dashed;
+            border-color: white;
+            display: flex;
+        }
+
+        
+        .road-kalainger{
+            background-color: black;
+            width: 160px;
+            height: 75px;
+            position: fixed;
+            left: 295px;
+            bottom: 265px;
+            border-top-style: dashed;
+            border-bottom-style: dashed;
+            border-color: white;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .road-ranga{
+            background-color: black;
+            width: 160px;
+            height: 75px;
+            position: fixed;
+            left: 60px;
+            bottom: 265px;            
+            border-top-style: dashed;
+            border-bottom-style: dashed;
+            border-color: white;
+            display: flex;
+            flex-direction: column;
+        }
+        .road-vallalar-right {
+            height: 160px;
+            width: 50%;
+            background-color: black;
+            border-right-style: dashed;
+            border-color: white;
+            display: inline-block;
+        }
+
+        .road-vallalar-left {
+            height: 160px;
+            width: 50%;
+            background-color: black;
+            display: inline-block;
+        }
+        .road-amman-right {
+            height: 160px;
+            width: 50%;
+            background-color: black;
+            border-right-style: dashed;
+            border-color: white;
+            display: inline-block;
+        }
+
+        .road-amman-left {
+            height: 160px;
+            width: 50%;
+            background-color: black;
+            display: inline-block;
+        }
+
+        .road-ranga-right {
+            height: 50%;
+            width: 160px;
+            background-color: black;
+            border-bottom-style: dashed;
+            border-color: white;
+            display: inline-block;
+        }
+
+        .road-ranga-left {
+            height: 50%;
+            width: 160px;
+            background-color: black;
+            display: inline-block;
+        }
+        .road-kalainger-right {
+            height: 50%;
+            width: 160px;
+            background-color: black;
+            border-bottom-style: dashed;
+            border-color: white;
+            display: inline-block;
+        }
+
+        .road-kalainger-left {
+            height: 50%;
+            width: 160px;
+            background-color: black;
+            display: inline-block;
+        }
+
+        .roads-plus-button {
+            position: fixed;
+            z-index: 5;
+        }
+
+        button{
+            background-color: rgb(245, 228, 0);
+            font-weight: bold;
+            border-width: 3px;
+        }
+
+        .stop-vallalar {
+            color: white;
+            font-weight: bold;
+            font-family: antonio;
+            display: inline-block;
+            padding: 2px;
+            position: fixed;
+            top: 180px;
+            left: 245px;
+            rotate: 180deg;
+        }
+
+        .stop-amman {
+            color: white;
+            font-weight: bold;
+            font-family: antonio;
+            background-color: black;
+            display: inline-block;
+            padding: 2px;
+            position: fixed;
+            bottom: 220px;
+            left: 245px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div-city">
+        <div class="roads-plus-button">
+            <button type="button" name="" id="" class="vallalar-button" onclick="vallalarbutton()">Vallalar street</button>  
+            <div class="road-vallalar">
+                <div class="road-vallalar-right" id="road-vallalar-right"></div>
+                <div class="road-vallalar-left" id="road-vallalar-left"></div>
+            </div>
+            <div class="stop-vallalar" id="stop-vallalar">STOP</div>
+        </div>
+
+        
+        <div class="roads-plus-button">
+            <button type="button" name="" id="" class="ranga-button" onclick="rangabutton()">Ranganathan street</button>
+            <div class="road-ranga">
+                <div class="road-ranga-right" id="road-ranga-right"></div>
+                <div class="road-ranga-left" id="road-ranga-left"></div>
+            </div>
+            <div class="stop-amman">STOP</div>
+        </div>
+
+        
+        <div class="roads-plus-button">
+            <button type="button" name="" id="" class="kalainger-button" onclick="kalaingerbutton()">kalainger street</button>
+            <div class="road-kalainger">
+                <div class="road-kalainger-right" id="road-kalainger-right"></div>
+                <div class="road-kalainger-left" id="road-kalainger-left"></div>
+            </div>
+        </div>
+
+        
+        <div class="roads-plus-button">
+            <button type="button" name="" id="" class="amman-button" onclick="ammanbutton()">Ammankovil street</button>
+            <div class="road-amman">
+                <div class="road-amman-right" id="road-amman-right"></div>
+                <div class="road-amman-left" id="road-amman-left"></div>
+            </div>
+        </div>
+
+        <div style=" position: fixed;
+                     background-color: blue;
+                      height: 100px; 
+                      width: 100px;
+                      position: fixed;
+                      top: 205px;
+                      left: 210px;
+                      display: flex;
+                      flex-wrap: wrap;">
+                      
+                      <div style="height: 50%;
+                                  width: 50%;
+                                  background-color: black;" id="bone"></div>
+                      
+                      <div style="height: 50%;
+                                  width: 50%;
+                                  background-color: black;" id="btwo"></div>
+                      
+                      <div style="height: 50%;
+                                  width: 50%;
+                                  background-color: black;" id="bthree"></div>
+                      
+                      <div style="height: 50%;
+                                  width: 50%;
+                                  background-color: black;" id="bfour"></div>
+                    </div>
+        <div class="cp-div">CP</div>
+    </div><br>
+    <button onclick="clearbutton()">Clear</button>
+
+    <script>
+        function vallalarbutton() {
+            document.getElementById('road-vallalar-right').style.backgroundColor="green";
+            document.getElementById('road-vallalar-left').style.backgroundColor="green";
+            document.getElementById('road-kalainger-right').style.backgroundColor="green";
+            document.getElementById('road-amman-left').style.backgroundColor="green";
+            document.getElementById('road-ranga-left').style.backgroundColor="green";
+            document.getElementById('bone').style.backgroundColor="green";
+            document.getElementById('btwo').style.backgroundColor="green";
+            document.getElementById('bthree').style.backgroundColor="green";
+            document.getElementById('bfour').style.backgroundColor="green";
+            document.getElementById('stop-vallalar').style.backgroundColor="green";
+        }
+
+        function kalaingerbutton() {
+            document.getElementById('road-kalainger-right').style.backgroundColor="green";
+            document.getElementById('road-kalainger-left').style.backgroundColor="green";
+            document.getElementById('road-vallalar-right').style.backgroundColor="green";
+            document.getElementById('road-ranga-left').style.backgroundColor="green";
+            document.getElementById('road-amman-left').style.backgroundColor="green";
+            document.getElementById('bone').style.backgroundColor="green";
+            document.getElementById('btwo').style.backgroundColor="green";
+            document.getElementById('bthree').style.backgroundColor="green";
+            document.getElementById('bfour').style.backgroundColor="green";
+        }
+
+        function rangabutton() {
+            document.getElementById('road-ranga-right').style.backgroundColor="green";
+            document.getElementById('road-ranga-left').style.backgroundColor="green";
+            document.getElementById('road-vallalar-right').style.backgroundColor="green";
+            document.getElementById('road-kalainger-right').style.backgroundColor="green";
+            document.getElementById('road-amman-left').style.backgroundColor="green";
+            document.getElementById('bone').style.backgroundColor="green";
+            document.getElementById('btwo').style.backgroundColor="green";
+            document.getElementById('bthree').style.backgroundColor="green";
+            document.getElementById('bfour').style.backgroundColor="green";
+        }
+
+        function ammanbutton() {
+            document.getElementById('road-amman-right').style.backgroundColor="green";
+            document.getElementById('road-amman-left').style.backgroundColor="green";
+            document.getElementById('road-vallalar-right').style.backgroundColor="green";
+            document.getElementById('road-kalainger-right').style.backgroundColor="green";
+            document.getElementById('road-ranga-left').style.backgroundColor="green";
+            document.getElementById('bone').style.backgroundColor="green";
+            document.getElementById('btwo').style.backgroundColor="green";
+            document.getElementById('bthree').style.backgroundColor="green";
+            document.getElementById('bfour').style.backgroundColor="green";
+        }
+
+        function clearbutton() {
+            document.getElementById('road-amman-right').style.backgroundColor="black";
+            document.getElementById('road-amman-left').style.backgroundColor="black";
+            document.getElementById('road-vallalar-left').style.backgroundColor="black";
+            document.getElementById('road-vallalar-right').style.backgroundColor="black";
+            document.getElementById('road-kalainger-left').style.backgroundColor="black";
+            document.getElementById('road-kalainger-right').style.backgroundColor="black";
+            document.getElementById('road-ranga-right').style.backgroundColor="black";
+            document.getElementById('road-ranga-left').style.backgroundColor="black";
+            document.getElementById('bone').style.backgroundColor="black";
+            document.getElementById('btwo').style.backgroundColor="black";
+            document.getElementById('bthree').style.backgroundColor="black";
+            document.getElementById('bfour').style.backgroundColor="black";
+        }
+    </script>
+</body>
+</html>

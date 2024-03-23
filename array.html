@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h2>JS Array Functiosn/Methods</h2>
+
+        <div id="arrOp"></div>
+        <script>
+            let result = "";
+            let arr = ["Vishnu", "Veera", "Ram","Vishnu", "JayaSurya"];
+
+            result += "Array : " + arr + "<br>";
+            result += "Array Length : " + arr.length + "<br>";
+            result += "Push Karthick : " + arr.push("Karthick") + "<br>";
+            result += "Array : " + arr + "<br>";
+            result += "Push Ramya : " + arr.push("Ramya") + "<br>";
+            result += "Array : " + arr + "<br>";
+            result += "Pop : " + arr.pop() + "<br>";
+            result += "Array : " + arr + "<br>";
+            result += "Unshift Syed : " + arr.unshift("Syed") + "<br>";
+            result += "Array : " + arr + "<br>";
+            result += "Shift : " + arr.shift() + "<br>";
+            result += "Array : " + arr + "<br>";
+            result += "Includes Veera : " + arr.includes("Veera") + "<br>";
+            result += "Includes Dinesh : " + arr.includes("Dinesh") + "<br>";
+            result += "Index Of Vishnu: " + arr.indexOf("Vishnu") + "<br>";
+            result += "Last Index Of Vishnu : " + arr.lastIndexOf("Vishnu") + "<br>";
+            result += "Reverse : " + arr.reverse() + "<br>";
+            result += "Slice 2 5 : " + arr.slice(2,5) + "<br>";
+            result += "Slice 4 : " + arr.slice(4) + "<br>";
+            result += "Array : " + arr + "<br>";
+            result += "Join $ : " + arr.join("$") + "<br>";
+            result += "Concat ['KshamaDevi', 'Prakash'] : " + arr.concat(["KshamaDevi", "Prakash"]) + "<br>";
+            result += "Array : " + arr + "<br>";
+            result += "Fill 2 4 @ : " + arr.fill("@", 2, 4) + "<br>";
+            result += "Array : " + arr + "<br>";
+            result += "Splice 2 : " + arr.splice(2, 1) + "<br>";
+            result += "Array : " + arr + "<br>";
+            result += "ToString : " + arr.toString() + "<br>";
+            result += "Array : " + arr + "<br>";
+            result += "Sort : " + arr.sort() + "<br>";
+            result += "Array : " + arr + "<br>";
+            console.log(arr);
+            console.log(arr.toString());
+            document.getElementById('arrOp').innerHTML = result;
+        </script>
+    </div>
+</body>
+</html>
